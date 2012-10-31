@@ -18,52 +18,61 @@ namespace PennyFarElements
 		private UIImage navBarBackgroundImage;
 		private bool pushing;
 		private UIColor buttonColor;
-		
+		private UIColor navBarColor;
+		private UIImage backgroundImage;
+
 		public CustomDialogViewController (RootElement root) : base (root)
 		{
-			
-			buttonColor = new UIColor(223.0f, 159.0f, 53.0f, 1.0f);
 			pushing = false;
+			this.SetDefaults();
 		}
 		
 		public CustomDialogViewController (RootElement root, bool back) : base(root, back)
 		{
 			pushing = back;
-			buttonColor = new UIColor(223.0f, 159.0f, 53.0f, 1.0f);
+			this.SetDefaults();
 		}
-		
+
+		private void SetDefaults ()
+		{
+			buttonColor = UIColor.FromRGB (223, 159, 53);
+			backgroundImage = UIImage.FromBundle("images/shl");
+			navBarColor = UIColor.FromRGB (223, 159, 53);
+		}
+
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-			
-			
-			
 		}
+
+		// Send a string value to the image. Loads via FromBundle for Retina Support
+		public string BackgroundImage {
+			set { this.backgroundImage = UIImage.FromBundle(value); }
+		}
+
+		// UIColor for the Nav Bar
+		public UIColor NavigationBarColor {
+			set { this.navBarColor = value; }
+		}
+
+
+	
 		
 		public override void LoadView ()
 		{
 			base.LoadView ();
+			// Clear the Table View
 			TableView.BackgroundColor = UIColor.Clear;
 			TableView.BackgroundView = null;
-			//NavigationItem.BackBarButtonItem.TintColor = buttonColor;
-			UIImage background = UIImage.FromBundle ("background/escheresque");
-			this.View.BackgroundColor = UIColor.FromPatternImage (background);
+
+
+			this.View.BackgroundColor = UIColor.FromPatternImage (this.backgroundImage);
 			
-			// Bar
+
 			if (this.NavigationController != null) {
-				if (UIDevice.CurrentDevice.CheckSystemVersion (5, 0)) {
-					this.navBarBackgroundImage = UIImage.FromBundle ("background/navBar");
-					//this.NavigationController.NavigationItem.Title = "";
-					this.NavigationController.NavigationBar.SetBackgroundImage (this.navBarBackgroundImage, UIBarMetrics.Default);
-					this.NavigationController.NavigationBar.TintColor = buttonColor;
-				} else {
-					this.NavigationController.NavigationBar.TintColor = buttonColor;
-				}
-				
-				
-				
+					this.NavigationController.NavigationBar.TintColor = this.navBarColor;
 			}
-			
+			/** Buttons
 			if (pushing) {
 				
 				UISegmentedControl backControl = new UISegmentedControl (RectangleF.FromLTRB (0, 20, 50, 20));
@@ -81,7 +90,7 @@ namespace PennyFarElements
 				}; 
 				this.NavigationItem.LeftBarButtonItem = backButton;
 			}
-			
+			**/
 			
 			
 		}

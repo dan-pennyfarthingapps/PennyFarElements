@@ -1,9 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 
+
+using MonoTouch.Dialog;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using ElementPack;
 
 namespace PennyFarElements
 {
@@ -15,7 +20,9 @@ namespace PennyFarElements
 	{
 		// class-level declarations
 		UIWindow window;
-		PennyFarElementsViewController viewController;
+		CustomDialogViewController cDVC;
+		RootElement root;
+		UINavigationController nav;
 
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
@@ -27,9 +34,17 @@ namespace PennyFarElements
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			
-			viewController = new PennyFarElementsViewController ();
-			window.RootViewController = viewController;
+
+			root = new RootElement("Custom Penny Far Elements");
+			Section section = new Section("Counter Element", "Has a ValueChanged event") {
+				new ResponsiveCounterElement("Responsive Counter", "10.0")
+			};
+			root.Add(section);
+			cDVC = new CustomDialogViewController(root);
+			nav = new UINavigationController(cDVC);
+
+
+			window.RootViewController = nav;
 			window.MakeKeyAndVisible ();
 			
 			return true;

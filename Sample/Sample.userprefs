@@ -2,15 +2,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.Workbench ActiveDocument="AppDelegate.cs">
     <Files>
-      <File FileName="AppDelegate.cs" Line="10" Column="1" />
+      <File FileName="AppDelegate.cs" Line="25" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
-          <Node name="PennyFarElements" expanded="True" />
-          <Node name="Sample" expanded="True">
-            <Node name="References" expanded="True" />
-          </Node>
+        <State expanded="True">
+          <Node name="PennyFarElements" expanded="True" selected="True" />
+          <Node name="Sample" expanded="True" />
         </State>
       </Pad>
     </Pads>

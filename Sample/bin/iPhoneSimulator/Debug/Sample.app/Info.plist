@@ -33,10 +33,10 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>3.2</string>
+	<string>5.0</string>
 	<key>UIDeviceFamily</key>
 	<array>
-		<integer>2</integer>
+		<integer>1</integer>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

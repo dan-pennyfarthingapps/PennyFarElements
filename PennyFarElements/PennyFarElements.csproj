@@ -88,18 +88,14 @@
     <None Include="images\readme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
     <Compile Include="ResponsiveCounterElement.cs" />
-    <Compile Include="CounterElement.cs" />
-    <Compile Include="CustomDialogViewController.cs" />
     <Compile Include="CustomRootElement.cs" />
+    <Compile Include="CustomDialogViewController.cs" />
+    <Compile Include="CounterElement.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Main.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="SampleFiles\" />
-    <Folder Include="images\" />
-  </ItemGroup>
   <ItemGroup>
     <Content Include="images\shl.png" />
     <Content Include="images\shl%402X.png" />

@@ -9,8 +9,9 @@ using MonoTouch.Dialog;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using ElementPack;
+using PennyFarElements;
 
-namespace PennyFarElements
+namespace Sample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the 
 	// User Interface of the application, as well as listening (and optionally responding) to 

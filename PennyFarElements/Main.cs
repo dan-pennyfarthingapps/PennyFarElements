@@ -5,7 +5,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace PennyFarElements
+namespace Sample
 {
 	public class Application
 	{

@@ -21,6 +21,10 @@ namespace PennyFarElements
 		private UIColor navBarColor;
 		private UIImage backgroundImage;
 
+		private UIBarButtonItem backButton;
+		private UISegmentedControl backControl;
+		private bool customBackButton;
+
 		public CustomDialogViewController (RootElement root) : base (root)
 		{
 			pushing = false;
@@ -38,6 +42,7 @@ namespace PennyFarElements
 			buttonColor = UIColor.FromRGB (223, 159, 53);
 			backgroundImage = UIImage.FromBundle("images/shl");
 			navBarColor = UIColor.FromRGB (223, 159, 53);
+			customBackButton = false;
 		}
 
 		public override void ViewWillAppear (bool animated)
@@ -55,7 +60,19 @@ namespace PennyFarElements
 			set { this.navBarColor = value; }
 		}
 
+		// Sample: RectangleF.FromLTRB (0, 20, 50, 20)
+		public void SetCustomBackButton (UIImage buttonImage, RectangleF locationAndSize)
+		{
+			backControl = new UISegmentedControl (locationAndSize);
 
+			backControl.ControlStyle = UISegmentedControlStyle.Plain;
+			backControl.InsertSegment (buttonImage, 0, false);
+			backControl.Momentary = true;
+			
+			backButton = new UIBarButtonItem (backControl);
+			
+			customBackButton = true;
+		}
 	
 		
 		public override void LoadView ()
@@ -72,25 +89,16 @@ namespace PennyFarElements
 			if (this.NavigationController != null) {
 					this.NavigationController.NavigationBar.TintColor = this.navBarColor;
 			}
-			/** Buttons
-			if (pushing) {
+
+			if (pushing && customBackButton) {
 				
-				UISegmentedControl backControl = new UISegmentedControl (RectangleF.FromLTRB (0, 20, 50, 20));
-				//backControl.TintColor = buttonColor;
-				backControl.ControlStyle = UISegmentedControlStyle.Plain;
-				backControl.InsertSegment (UIImage.FromBundle ("icons/backButton"), 0, false);
-				backControl.Momentary = true;
-				
-				UIBarButtonItem backButton = new UIBarButtonItem (backControl);
-				//backButton.Title = "Back";
-				//backButton.Style = UIBarButtonItemStyle.Bordered;
-				//backButton.TintColor = buttonColor;
-				backControl.ValueChanged += (object sender, EventArgs e) => {
+				this.backControl.ValueChanged += (object sender, EventArgs e) => {
 					this.NavigationController.PopViewControllerAnimated (true);
 				}; 
+
 				this.NavigationItem.LeftBarButtonItem = backButton;
 			}
-			**/
+
 			
 			
 		}

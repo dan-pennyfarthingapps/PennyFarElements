@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PennyFarElements", "PennyFarElements.csproj", "{908435C1-F261-4E78-B3C3-D033B54BCDCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+		Ad-Hoc|iPhone = Ad-Hoc|iPhone
+		AppStore|iPhone = AppStore|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.Debug|iPhone.Build.0 = Debug|iPhone
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.Release|iPhone.ActiveCfg = Release|iPhone
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.Release|iPhone.Build.0 = Release|iPhone
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{908435C1-F261-4E78-B3C3-D033B54BCDCE}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = PennyFarElements.csproj
+	EndGlobalSection
+EndGlobal

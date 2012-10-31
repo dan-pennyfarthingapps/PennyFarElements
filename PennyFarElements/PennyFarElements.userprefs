@@ -1,11 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Sample/AppDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CustomRootElement.cs">
     <Files>
-      <File FileName="Sample/AppDelegate.cs" Line="35" Column="5" />
-      <File FileName="Sample/Main.cs" Line="7" Column="1" />
-      <File FileName="Info.plist" />
+      <File FileName="CustomRootElement.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="PennyFarElements" expanded="True">
+            <Node name="CustomRootElement.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

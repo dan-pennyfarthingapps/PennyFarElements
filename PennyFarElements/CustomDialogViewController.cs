@@ -60,6 +60,7 @@ namespace PennyFarElements
 			set { this.navBarColor = value; }
 		}
 
+		// Sets a custom back button from an image
 		// Sample: RectangleF.FromLTRB (0, 20, 50, 20)
 		public void SetCustomBackButton (UIImage buttonImage, RectangleF locationAndSize)
 		{

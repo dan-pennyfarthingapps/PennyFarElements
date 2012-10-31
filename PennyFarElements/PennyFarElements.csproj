@@ -93,6 +93,7 @@
     <Compile Include="ResponsiveCounterElement.cs" />
     <Compile Include="CounterElement.cs" />
     <Compile Include="CustomDialogViewController.cs" />
+    <Compile Include="CustomRootElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

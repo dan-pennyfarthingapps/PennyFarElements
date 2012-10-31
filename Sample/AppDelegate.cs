@@ -37,8 +37,32 @@ namespace Sample
 			Section section = new Section("Counter Element", "Has a ValueChanged event") {
 				new ResponsiveCounterElement("Responsive Counter", "10.0")
 			};
+		
 			root.Add(section);
+
+			Section subSection = new Section("Section with sub roots");
+
+			CustomRootElement subRoot = new CustomRootElement("Multi Options");
+			Section stuffSect = new Section("Showing Stuff");
+			StringElement stuff1 = new StringElement("Stuff");
+			StringElement stuff2 = new StringElement("More stuff");
+
+			stuffSect.Add(stuff1);
+			stuffSect.Add(stuff2);
+
+			subRoot.BackgroundImage= "images/norwegian_rose";
+
+			subRoot.Add(stuffSect);
+
+			subSection.Add(subRoot);
+
+			root.Add(subSection);
+
 			cDVC = new CustomDialogViewController(root);
+
+			// Add custom background
+			cDVC.BackgroundImage = "images/norwegian_rose";
+
 			nav = new UINavigationController(cDVC);
 			
 			

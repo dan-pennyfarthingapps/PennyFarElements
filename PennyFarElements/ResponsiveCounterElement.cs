@@ -106,20 +106,6 @@ namespace PennyFarElements
 				vc.View.BackgroundColor = this.backgroundColor;
 				vc.View.AddSubview (counterPicker);
 				
-				/**
-				UISegmentedControl backControl = new UISegmentedControl(RectangleF.FromLTRB(0,20,50,20));
-				
-				backControl.ControlStyle = UISegmentedControlStyle.Plain;
-				backControl.InsertSegment(UIImage.FromBundle("icons/backButton"), 0, false);
-				backControl.Momentary = true;
-				
-				UIBarButtonItem backButton = new UIBarButtonItem(backControl);
-				
-				backControl.ValueChanged += (object sender, EventArgs e) => {
-					vc.NavigationController.PopViewControllerAnimated(true);
-				}; 
-				vc.NavigationItem.LeftBarButtonItem = backButton;
-				**/
 				
 				dvc.ActivateController (vc);
 				

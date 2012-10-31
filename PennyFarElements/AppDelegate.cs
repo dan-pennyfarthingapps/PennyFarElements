@@ -21,7 +21,7 @@ namespace PennyFarElements
 		// class-level declarations
 		UIWindow window;
 		CustomDialogViewController cDVC;
-		RootElement root;
+		CustomRootElement root;
 		UINavigationController nav;
 
 		//
@@ -35,7 +35,7 @@ namespace PennyFarElements
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 
-			root = new RootElement("Custom Penny Far Elements");
+			root = new CustomRootElement("Custom Penny Far Elements");
 			Section section = new Section("Counter Element", "Has a ValueChanged event") {
 				new ResponsiveCounterElement("Responsive Counter", "10.0")
 			};

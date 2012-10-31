@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -87,18 +88,12 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="RootViewController.cs" />
-    <Compile Include="RootViewController.designer.cs">
-      <DependentUpon>RootViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DetailViewController.cs" />
-    <Compile Include="DetailViewController.designer.cs">
-      <DependentUpon>DetailViewController.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="RootViewController.xib" />
-    <InterfaceDefinition Include="DetailViewController.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\PennyFarElements\PennyFarElements.csproj">
+      <Project>{908435C1-F261-4E78-B3C3-D033B54BCDCE}</Project>
+      <Name>PennyFarElements</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

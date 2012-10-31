@@ -5,6 +5,9 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
+using MonoTouch.Dialog;
+using PennyFarElements;
+
 namespace Sample
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -14,9 +17,11 @@ namespace Sample
 	public partial class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
-		UISplitViewController splitViewController;
 		UIWindow window;
-
+		CustomDialogViewController cDVC;
+		CustomRootElement root;
+		UINavigationController nav;
+		
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
 		// method you should instantiate the window, load the UI into it and then make the window
@@ -26,28 +31,23 @@ namespace Sample
 		//
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			// create a new window instance based on the screen size
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
-			var masterViewController = new RootViewController ();
-			var masterNavigationController = new UINavigationController (masterViewController);
-			var detailViewController = new DetailViewController ();
-			var detailNavigationController = new UINavigationController (detailViewController);
-			
-			splitViewController = new UISplitViewController ();
-			splitViewController.WeakDelegate = detailViewController;
-			splitViewController.ViewControllers = new UIViewController[] {
-				masterNavigationController,
-				detailNavigationController
+			root = new CustomRootElement("Penny Far Elements Sample");
+			Section section = new Section("Counter Element", "Has a ValueChanged event") {
+				new ResponsiveCounterElement("Responsive Counter", "10.0")
 			};
+			root.Add(section);
+			cDVC = new CustomDialogViewController(root);
+			nav = new UINavigationController(cDVC);
 			
-			window.RootViewController = splitViewController;
-
-			// make the window visible
+			
+			window.RootViewController = nav;
 			window.MakeKeyAndVisible ();
 			
 			return true;
 		}
 	}
+
 }
 

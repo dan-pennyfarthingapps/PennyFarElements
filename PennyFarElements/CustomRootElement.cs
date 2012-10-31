@@ -1,3 +1,8 @@
+//
+// 	CustomRootElement.cs
+// 	Author: Daniel Wiseman
+//	PennyFarElements: http://penfarapps.com/Sx1v5n
+//
 using System;
 using System.Collections.Generic;
 using System.Drawing;

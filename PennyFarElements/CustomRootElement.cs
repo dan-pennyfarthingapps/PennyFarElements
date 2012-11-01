@@ -4,11 +4,12 @@
 //	PennyFarElements: http://penfarapps.com/Sx1v5n
 //
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-
 
 using MonoTouch.Dialog;
 using MonoTouch.Foundation;
@@ -17,7 +18,7 @@ using ElementPack;
 
 namespace PennyFarElements
 {
-	public class CustomRootElement : RootElement {
+	public class CustomRootElement : RootElement, IEnumerable, IEnumerable<Section> {
 
 		private UIImage backgroundImage;
 		
@@ -59,6 +60,8 @@ namespace PennyFarElements
 			
 			customBackButton = true;
 		}
+
+
 		
 		protected override MonoTouch.UIKit.UIViewController MakeViewController ()
 		{
@@ -80,7 +83,31 @@ namespace PennyFarElements
 			}
 			return result;
 		}
+
+
+
+
+		/// <summary>
+		/// Enumerator that returns all the sections in the RootElement.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="IEnumerator"/>
+		/// </returns>
+		IEnumerator IEnumerable.GetEnumerator ()
+		{
+			for(int i = 0; i < base.Count; i++) {
+				yield return base[i];
+			}
+		}
+
+		IEnumerator<Section> IEnumerable<Section>.GetEnumerator ()
+		{
+			for(int i = 0; i < base.Count; i++) {
+				yield return base[i];
+			}
+		}
 		
+
 	}
 }
 

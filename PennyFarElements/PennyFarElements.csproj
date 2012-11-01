@@ -92,6 +92,7 @@
     <Compile Include="CustomRootElement.cs" />
     <Compile Include="CustomDialogViewController.cs" />
     <Compile Include="CounterElement.cs" />
+    <Compile Include="ResponsiveRadioElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

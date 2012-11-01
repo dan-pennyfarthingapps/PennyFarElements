@@ -88,12 +88,7 @@ namespace PennyFarElements
 
 
 
-		/// <summary>
-		/// Enumerator that returns all the sections in the RootElement.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="IEnumerator"/>
-		/// </returns>
+		// allows subclasses of CustomRootElement to be used in a foreach statement
 		IEnumerator IEnumerable.GetEnumerator ()
 		{
 			for(int i = 0; i < base.Count; i++) {

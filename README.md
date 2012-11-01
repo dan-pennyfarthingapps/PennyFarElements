@@ -14,4 +14,8 @@ Requires the CustomDialogViewController. Allows a custom background image and ba
 
 Requires the Monotouch:Dialog Element Pack. Extends the CounterElement to include a customizable background and a ValueChanged event.
 
+## ResponsiveRadioElement
+
+Extends the MTD RadioElement to have an OnSelected event.
+
 Feel free to use these as you like!

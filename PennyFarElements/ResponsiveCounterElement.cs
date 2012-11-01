@@ -24,19 +24,38 @@ namespace PennyFarElements
 
 			
 			private UIColor backgroundColor;
+			
+			private UIBarButtonItem backButton;
+			private UISegmentedControl backControl;
+			private bool customBackButton;
 
 			public ResponsiveCounterElement (string caption, string counter) : base (caption, counter)
 			{
 				backgroundColor = UIColor.Black;
+				customBackButton = false;
 			}
 
 			public ResponsiveCounterElement (string caption, string counter, UIImage backgroundImage) : base (caption, counter)
 			{
 				
 				backgroundColor = UIColor.FromPatternImage(backgroundImage);
+				customBackButton = false;
 			}
 				
 			public event EventHandler<EventArgs> ValueChanged;
+
+			public void SetCustomBackButton (UIImage buttonImage, RectangleF locationAndSize)
+			{
+				backControl = new UISegmentedControl (locationAndSize);
+				
+				backControl.ControlStyle = UISegmentedControlStyle.Plain;
+				backControl.InsertSegment (buttonImage, 0, false);
+				backControl.Momentary = true;
+				
+				backButton = new UIBarButtonItem (backControl);
+				
+				customBackButton = true;
+			}
 			
 			static RectangleF PickerFrameWithSize (SizeF size)
 			{                                                                                                                                    
@@ -88,32 +107,43 @@ namespace PennyFarElements
 			}
 			
 			public override void Selected (DialogViewController dvc, UITableView tableView, NSIndexPath path)
-			{
-				model = new CounterPickerDataModel(model.Counter);
-				var vc = new MyViewController (this) {
+		{
+			model = new CounterPickerDataModel (model.Counter);
+			var vc = new MyViewController (this) {
 					Autorotate = dvc.Autorotate
 				};
-				counterPicker = CreatePicker ();
-				counterPicker.Frame = PickerFrameWithSize (counterPicker.SizeThatFits (SizeF.Empty));
-				counterPicker.Model = model;
-				for (int d = 0; d < model.Items.Count; d++) {
-					counterPicker.Select(model.SelectedIndex[d], d, true);
+			counterPicker = CreatePicker ();
+			counterPicker.Frame = PickerFrameWithSize (counterPicker.SizeThatFits (SizeF.Empty));
+			counterPicker.Model = model;
+			for (int d = 0; d < model.Items.Count; d++) {
+				counterPicker.Select (model.SelectedIndex [d], d, true);
+			}
+				
+			// pass value changed
+			model.ValueChanged += delegate {
+				if (this.ValueChanged != null) {
+					Value = model.FormatValue ();
+					this.ValueChanged (this, new EventArgs ());
 				}
+			};
 				
-				// pass value changed
-				model.ValueChanged += delegate {
-					if (this.ValueChanged != null) {
-						Value = model.FormatValue();
-						this.ValueChanged (this, new EventArgs ());
-					}
-				};
+			// Add the background color
+			vc.View.BackgroundColor = this.backgroundColor;
+			vc.View.AddSubview (counterPicker);
+
+			// back button
+
+			if (customBackButton) {
 				
-				// Add the background color
-				vc.View.BackgroundColor = this.backgroundColor;
-				vc.View.AddSubview (counterPicker);
+				backControl.ValueChanged += (object sender, EventArgs e) => {
+					vc.NavigationController.PopViewControllerAnimated (true);
+				}; 
+				vc.NavigationItem.LeftBarButtonItem = backButton;
+			}
+
 				
 				
-				dvc.ActivateController (vc);
+			dvc.ActivateController (vc);
 				
 				
 			}

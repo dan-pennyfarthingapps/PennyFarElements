@@ -2,13 +2,21 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.Workbench ActiveDocument="AppDelegate.cs">
     <Files>
-      <File FileName="AppDelegate.cs" Line="25" Column="5" />
+      <File FileName="AppDelegate.cs" Line="59" Column="25" />
+      <File FileName="../PennyFarElements/CounterElement.cs" Line="1" Column="1" />
+      <File FileName="../PennyFarElements/CustomDialogViewController.cs" Line="93" Column="4" />
+      <File FileName="../PennyFarElements/CustomRootElement.cs" Line="2" Column="22" />
+      <File FileName="../PennyFarElements/ResponsiveCounterElement.cs" Line="2" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="PennyFarElements" expanded="True" selected="True" />
-          <Node name="Sample" expanded="True" />
+          <Node name="PennyFarElements" expanded="True" />
+          <Node name="Sample" expanded="True">
+            <Node name="images" expanded="True">
+              <Node name="norwegian_rose@2X.png" selected="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>

@@ -76,7 +76,8 @@ namespace PennyFarElements
 			if (customBackButton) {
 
 				backControl.ValueChanged += (object sender, EventArgs e) => {
-					result.NavigationController.PopViewControllerAnimated (true);
+					if(result.NavigationController != null) 
+						result.NavigationController.PopViewControllerAnimated (true);
 				}; 
 
 				result.NavigationItem.LeftBarButtonItem = backButton;

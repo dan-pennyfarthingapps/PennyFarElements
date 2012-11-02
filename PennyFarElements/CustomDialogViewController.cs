@@ -65,6 +65,11 @@ namespace PennyFarElements
 			set { this.navBarColor = value; }
 		}
 
+		// Only supported iOS 5.0 and up
+		public UIImage NavigationBarImage {
+			set { this.navBarBackgroundImage = value; } 
+		}
+
 		// Sets a custom back button from an image
 		// Sample: RectangleF.FromLTRB (0, 20, 50, 20)
 		public void SetCustomBackButton (UIImage buttonImage, RectangleF locationAndSize)
@@ -93,7 +98,7 @@ namespace PennyFarElements
 			
 
 			if (this.NavigationController != null) {
-					this.NavigationController.NavigationBar.TintColor = this.navBarColor;
+				this.NavigationController.NavigationBar.TintColor = this.navBarColor;
 			}
 
 			if (pushing && customBackButton) {
@@ -105,7 +110,13 @@ namespace PennyFarElements
 				this.NavigationItem.LeftBarButtonItem = backButton;
 			}
 
-			
+			if (this.navBarBackgroundImage != null) {
+				// Bar
+				if (UIDevice.CurrentDevice.CheckSystemVersion (5, 0)) {
+					//this.NavigationController.NavigationItem.Title = "";
+					this.NavigationController.NavigationBar.SetBackgroundImage (this.navBarBackgroundImage, UIBarMetrics.Default);
+				} 
+			}
 			
 		}
 	}

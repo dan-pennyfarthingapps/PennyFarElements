@@ -1,5 +1,10 @@
 // 
-// CounterElement.cs: // Author:
+//	TimeWithSecondsPickerElement
+// 	Author: Daniel Wiseman
+//	PennyFarElements: http://penfarapps.com/Sx1v5n
+//
+// Based HEAVILY on: CounterElement.cs: 
+// 	Author:
 //   Guido Van Hoecke
 //
 using MonoTouch.UIKit;
@@ -13,6 +18,7 @@ namespace PennyFarElements {
 	public class TimeWithSecondsPickerElement : StringElement {
 		public UIPickerView counterPicker;
 		protected TimePickerDataModel model;
+
 
 		protected class TimePickerDataModel : UIPickerViewModel
 		{
@@ -150,10 +156,24 @@ namespace PennyFarElements {
 
 			} 
 		}
-		
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="PennyFarElements.TimeWithSecondsPickerElement"/> class.
+		/// </summary>
+		/// <param name='caption'>
+		/// Caption.
+		/// </param>
+		/// <param name='time'>
+		/// Time.
+		/// </param>
 		public TimeWithSecondsPickerElement(string caption, TimeSpan time) : base (caption) {
 			model = new TimePickerDataModel(time);
 		}
+
+		/// <summary>
+		/// Occurs when value changed.
+		/// </summary>
+		public event EventHandler<EventArgs> ValueChanged;
 		
 		public override UITableViewCell GetCell (UITableView tv)
 		{
@@ -249,6 +269,15 @@ namespace PennyFarElements {
 			for (int d = 0; d < model.Times.Count; d++) {
 				counterPicker.Select(model.SelectedIndex[d], d, true);
 			}
+
+			// pass value changed
+			model.ValueChanged += delegate {
+				if (this.ValueChanged != null) {
+					Value = model.FormatValue ();
+					this.ValueChanged (this, new EventArgs ());
+				}
+			};
+
 			vc.View.BackgroundColor = UIColor.Black;
 			vc.View.AddSubview (counterPicker);
 			dvc.ActivateController (vc);

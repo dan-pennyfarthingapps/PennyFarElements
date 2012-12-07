@@ -93,6 +93,7 @@
     <Compile Include="CustomDialogViewController.cs" />
     <Compile Include="CounterElement.cs" />
     <Compile Include="ResponsiveRadioElement.cs" />
+    <Compile Include="TimeWithSecondsPickerElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

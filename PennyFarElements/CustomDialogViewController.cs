@@ -84,6 +84,12 @@ namespace PennyFarElements
 			
 			customBackButton = true;
 		}
+		
+		public UIColor ButtonColor {
+		  get { return this.buttonColor; }
+		  set { this.buttonColor = value; }
+		
+		}
 	
 		
 		public override void LoadView ()

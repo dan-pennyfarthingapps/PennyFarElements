@@ -1,22 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../PennyFarElements/ResponsiveRadioElement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppDelegate.cs">
     <Files>
-      <File FileName="AppDelegate.cs" Line="59" Column="25" />
+      <File FileName="AppDelegate.cs" Line="63" Column="6" />
       <File FileName="../PennyFarElements/CounterElement.cs" Line="1" Column="1" />
-      <File FileName="../PennyFarElements/CustomDialogViewController.cs" Line="16" Column="19" />
-      <File FileName="../PennyFarElements/CustomRootElement.cs" Line="91" Column="78" />
+      <File FileName="../PennyFarElements/CustomDialogViewController.cs" Line="68" Column="35" />
+      <File FileName="../PennyFarElements/CustomRootElement.cs" Line="16" Column="23" />
       <File FileName="../PennyFarElements/ResponsiveRadioElement.cs" Line="20" Column="50" />
-      <File FileName="../PennyFarElements/ResponsiveCounterElement.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="PennyFarElements" expanded="True">
-            <Node name="ResponsiveRadioElement.cs" selected="True" />
-          </Node>
+          <Node name="PennyFarElements" expanded="True" />
           <Node name="Sample" expanded="True">
             <Node name="images" expanded="True" />
+            <Node name="AppDelegate.cs" selected="True" />
           </Node>
         </State>
       </Pad>

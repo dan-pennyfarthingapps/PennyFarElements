@@ -44,6 +44,11 @@ namespace PennyFarElements {
 				get { return this._time; }
 			}
 
+			public List<List<int>> Times {
+				get { return this._times; }
+				set { this._times = value; }
+			}
+
 			public override int GetRowsInComponent (UIPickerView picker, int component)
 			{
 				return this._times[component].Count;
@@ -67,12 +72,46 @@ namespace PennyFarElements {
 					this.ValueChanged (this, new EventArgs ());
 				}
 
-				// TODO: update time span
+				this._time = new TimeSpan(this._selectedIndex[0], this._selectedIndex[1], this._selectedIndex[2]);
+
 			}
 
 			public List<int> SelectedIndex {
 				get { return _selectedIndex; }
 			}
+
+			public string FormatValue () 
+			{
+
+				return this._time.ToString();
+			}
+
+
+			public override UIView GetView(UIPickerView picker, int row, int component, UIView view) {
+				var label = new UILabel {
+					Text = this._times[component][row].ToString(),
+					TextAlignment = UITextAlignment.Center,
+				};
+				if (row == SelectedIndex[component]) {
+					label.TextColor = UIColor.Magenta;
+					switch (component) {
+					case 0:
+						label.Text += " hours";
+						break;
+					case 1: 
+						label.Text += " min";
+						break;
+					case 2:
+						label.Text += " sec";
+						break;
+
+					}
+
+				} 
+
+				return label;
+			}
+
 
 
 			private void FillTimes ()
@@ -104,7 +143,10 @@ namespace PennyFarElements {
 				this._selectedIndex.Add(this._time.Hours);
 				this._selectedIndex.Add(this._time.Minutes);
 				this._selectedIndex.Add(this._time.Seconds);
-				
+
+				this._times.Add(this._hours);
+				this._times.Add(this._minutes);
+				this._times.Add(this._seconds);
 
 			} 
 		}
@@ -167,7 +209,7 @@ namespace PennyFarElements {
 			
 			return new RectangleF (fX, fY, size.Width, size.Height);
 		}                                                                                                                                    
-		
+
 		class MyViewController : UIViewController {
 			TimeWithSecondsPickerElement container;
 			
@@ -194,17 +236,17 @@ namespace PennyFarElements {
 				return Autorotate;
 			}
 		}
-		
+
 		public override void Selected (DialogViewController dvc, UITableView tableView, NSIndexPath path)
 		{
-			model = new CounterPickerDataModel(model.Counter);
+			model = new TimePickerDataModel(new TimeSpan(0,0,0));
 			var vc = new MyViewController (this) {
 				Autorotate = dvc.Autorotate
 			};
 			counterPicker = CreatePicker ();
 			counterPicker.Frame = PickerFrameWithSize (counterPicker.SizeThatFits (SizeF.Empty));
 			counterPicker.Model = model;
-			for (int d = 0; d < model.Items.Count; d++) {
+			for (int d = 0; d < model.Times.Count; d++) {
 				counterPicker.Select(model.SelectedIndex[d], d, true);
 			}
 			vc.View.BackgroundColor = UIColor.Black;

@@ -259,7 +259,7 @@ namespace PennyFarElements {
 
 		public override void Selected (DialogViewController dvc, UITableView tableView, NSIndexPath path)
 		{
-			model = new TimePickerDataModel(new TimeSpan(0,0,0));
+			model = new TimePickerDataModel(model.Time);
 			var vc = new MyViewController (this) {
 				Autorotate = dvc.Autorotate
 			};

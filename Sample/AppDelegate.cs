@@ -47,7 +47,7 @@ namespace Sample
 			StringElement stuff1 = new StringElement("Stuff");
 			StringElement stuff2 = new StringElement("More stuff");
 
-			TimeWithSecondsPickerElement tepe = new TimeWithSecondsPickerElement("new pick", new TimeSpan(0,0,0));
+			TimeWithSecondsPickerElement tepe = new TimeWithSecondsPickerElement("new pick", new TimeSpan(4,3,1));
 
 
 			stuffSect.Add(stuff1);

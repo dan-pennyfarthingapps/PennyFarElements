@@ -47,8 +47,13 @@ namespace Sample
 			StringElement stuff1 = new StringElement("Stuff");
 			StringElement stuff2 = new StringElement("More stuff");
 
+			TimeWithSecondsPickerElement tepe = new TimeWithSecondsPickerElement("new pick", new TimeSpan(0,0,0));
+
+
 			stuffSect.Add(stuff1);
 			stuffSect.Add(stuff2);
+
+			stuffSect.Add(tepe);
 
 			subRoot.BackgroundImage= "images/norwegian_rose";
 

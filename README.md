@@ -18,4 +18,8 @@ Requires the Monotouch:Dialog Element Pack. Extends the CounterElement to includ
 
 Extends the MTD RadioElement to have an OnSelected event.
 
+## TimeWithSecondsPickerElement
+
+Allows the interactive selection of a TimeSpan using pickers. Based on CounterElement
+
 Feel free to use these as you like!

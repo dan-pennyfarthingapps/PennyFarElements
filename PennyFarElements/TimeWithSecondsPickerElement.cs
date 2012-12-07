@@ -31,8 +31,12 @@ namespace PennyFarElements {
 			public TimePickerDataModel(TimeSpan time) {
 				this.FillTimes();
 
+				this._time = time;
+
 				this._times = new List<List<int>>();
 				this._selectedIndex = new List<int>();
+
+				this.SetTimes();
 
 			}
 
@@ -48,7 +52,7 @@ namespace PennyFarElements {
 
 			public override string GetTitle (UIPickerView picker, int row, int component)
 			{
-				// TODO: Implement - see: http://go-mono.com/docs/index.aspx?link=T%3aMonoTouch.Foundation.ModelAttribute
+				return this._times[component][row].ToString();
 			}
 
 			public override int GetComponentCount (UIPickerView picker)
@@ -62,6 +66,8 @@ namespace PennyFarElements {
 				if (this.ValueChanged != null) {
 					this.ValueChanged (this, new EventArgs ());
 				}
+
+				// TODO: update time span
 			}
 
 			public List<int> SelectedIndex {
@@ -93,7 +99,15 @@ namespace PennyFarElements {
 
 			}
 
-		} 
+			private void SetTimes ()
+			{
+				this._selectedIndex.Add(this._time.Hours);
+				this._selectedIndex.Add(this._time.Minutes);
+				this._selectedIndex.Add(this._time.Seconds);
+				
+
+			} 
+		}
 		
 		public TimeWithSecondsPickerElement(string caption, TimeSpan time) : base (caption) {
 			model = new TimePickerDataModel(time);

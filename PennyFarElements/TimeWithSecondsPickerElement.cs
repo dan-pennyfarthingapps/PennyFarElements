@@ -18,6 +18,7 @@ namespace PennyFarElements {
 	public class TimeWithSecondsPickerElement : StringElement {
 		public UIPickerView counterPicker;
 		protected TimePickerDataModel model;
+		private UIColor backgroundColor;
 
 
 		protected class TimePickerDataModel : UIPickerViewModel
@@ -168,6 +169,7 @@ namespace PennyFarElements {
 		/// </param>
 		public TimeWithSecondsPickerElement(string caption, TimeSpan time) : base (caption) {
 			model = new TimePickerDataModel(time);
+			backgroundColor = UIColor.Black;
 		}
 
 		/// <summary>
@@ -234,6 +236,11 @@ namespace PennyFarElements {
 			get { return model.Time; }
 		}
 
+		public UIColor BackgroundColor {
+			get { return backgroundColor; }
+			set { backgroundColor = value; }
+		}
+
 		class MyViewController : UIViewController {
 			TimeWithSecondsPickerElement container;
 			
@@ -282,7 +289,7 @@ namespace PennyFarElements {
 				}
 			};
 
-			vc.View.BackgroundColor = UIColor.Black;
+			vc.View.BackgroundColor = backgroundColor;
 			vc.View.AddSubview (counterPicker);
 			dvc.ActivateController (vc);
 		}

@@ -228,7 +228,11 @@ namespace PennyFarElements {
 			}
 			
 			return new RectangleF (fX, fY, size.Width, size.Height);
-		}                                                                                                                                    
+		}     
+
+		public TimeSpan TimeValue {
+			get { return model.Time; }
+		}
 
 		class MyViewController : UIViewController {
 			TimeWithSecondsPickerElement container;

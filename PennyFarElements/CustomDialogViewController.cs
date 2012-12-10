@@ -116,7 +116,7 @@ namespace PennyFarElements
 				this.NavigationItem.LeftBarButtonItem = backButton;
 			}
 
-			if (this.navBarBackgroundImage != null) {
+			if (this.navBarBackgroundImage != null && this.NavigationController != null) {
 				// Bar
 				if (UIDevice.CurrentDevice.CheckSystemVersion (5, 0)) {
 					//this.NavigationController.NavigationItem.Title = "";

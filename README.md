@@ -22,4 +22,8 @@ Extends the MTD RadioElement to have an OnSelected event.
 
 Allows the interactive selection of a TimeSpan using pickers. Based on CounterElement
 
+## CustomKeyboardEntryElement
+
+MTD EntryElement with a toolbar on the keyboard with next/prev and done buttons.
+
 Feel free to use these as you like!

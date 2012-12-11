@@ -4,7 +4,8 @@
     <Files>
       <File FileName="AppDelegate.cs" Line="48" Column="59" />
       <File FileName="../PennyFarElements/CounterElement.cs" Line="229" Column="69" />
-      <File FileName="../PennyFarElements/TimeWithSecondsPickerElement.cs" Line="279" Column="6" />
+      <File FileName="../PennyFarElements/TimeWithSecondsPickerElement.cs" Line="202" Column="3" />
+      <File FileName="../PennyFarElements/ResponsiveCounterElement.cs" Line="130" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

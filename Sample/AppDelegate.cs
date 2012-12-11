@@ -40,6 +40,24 @@ namespace Sample
 		
 			root.Add(section);
 
+
+			Section customentry = new Section("Loop through the entries");
+			CustomKeyboardEntryElement firstElement = new CustomKeyboardEntryElement("entry 1", "", "");
+			CustomKeyboardEntryElement secondElement = new CustomKeyboardEntryElement("entry 2", "", "");
+			CustomKeyboardEntryElement thirdElement = new CustomKeyboardEntryElement("entry 3", "", "");
+
+			// Now set up the element order so it can go through them correctly
+			firstElement.NextElement = secondElement;
+			secondElement.PrevElement = firstElement;
+			secondElement.NextElement = thirdElement;
+			thirdElement.PrevElement = secondElement;
+
+			customentry.Add(firstElement);
+			customentry.Add(secondElement);
+			customentry.Add(thirdElement);
+
+			root.Add(customentry);
+
 			Section subSection = new Section("Section with sub roots");
 
 			CustomRootElement subRoot = new CustomRootElement("Multi Options");

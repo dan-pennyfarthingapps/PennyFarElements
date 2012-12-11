@@ -94,6 +94,7 @@
     <Compile Include="CounterElement.cs" />
     <Compile Include="ResponsiveRadioElement.cs" />
     <Compile Include="TimeWithSecondsPickerElement.cs" />
+    <Compile Include="CustomKeyboardEntryElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

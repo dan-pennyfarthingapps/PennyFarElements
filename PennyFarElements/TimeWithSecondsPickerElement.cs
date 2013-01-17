@@ -90,7 +90,7 @@ namespace PennyFarElements {
 			public string FormatValue () 
 			{
 
-				return this._time.ToString();
+				return this._time.Hours.ToString("00") + ":" + this._time.Minutes.ToString("00") + ":" + this._time.Seconds.ToString("00");
 			}
 
 
@@ -234,6 +234,7 @@ namespace PennyFarElements {
 
 		public TimeSpan TimeValue {
 			get { return model.Time; }
+
 		}
 
 		public UIColor BackgroundColor {
@@ -285,6 +286,7 @@ namespace PennyFarElements {
 			model.ValueChanged += delegate {
 				if (this.ValueChanged != null) {
 					Value = model.FormatValue ();
+
 					this.ValueChanged (this, new EventArgs ());
 				}
 			};
